@@ -1,0 +1,30 @@
+{
+  "name": "pfe-frontend-citizens",
+  "version": "1.0.0",
+  "description": "PFE Frontend for the citizens-related part",
+  "main": "index.js",
+  "dependencies": {
+    "nodemon": "^2.0.6",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "supertest": "^6.0.1"
+  },
+  "scripts": {
+    "test": "mocha ./tests/* --exit",
+    "start": "node index.js",
+    "nodemon": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marco-verbeek/pfe-frontend-citizens.git"
+  },
+  "author": "PFEGroupe6",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marco-verbeek/pfe-frontend-citizens/issues"
+  },
+  "homepage": "https://github.com/marco-verbeek/pfe-frontend-citizens#readme"
+}
