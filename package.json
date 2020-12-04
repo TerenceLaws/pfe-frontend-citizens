@@ -1,30 +1,68 @@
 {
   "name": "pfe-frontend-citizens",
   "version": "1.0.0",
+  "private": true,
   "description": "PFE Frontend for the citizens-related part",
-  "main": "index.js",
-  "dependencies": {
-    "nodemon": "^2.0.6",
-    "vue": "^2.6.12"
-  },
-  "devDependencies": {
-    "mocha": "^8.2.1",
-    "nodemon": "^2.0.6",
-    "supertest": "^6.0.1"
+  "author": {
+    "name": "PFEGroupe6"
   },
   "scripts": {
-    "test": "mocha ./tests/* --exit",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "nodemon": "nodemon index.js",
     "start": "node index.js",
-    "nodemon": "nodemon index.js"
+    "test": "mocha ./tests/* --exit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/marco-verbeek/pfe-frontend-citizens.git"
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "core-js": "^3.6.5",
+    "nodemon": "^2.0.6",
+    "vue": "^2.6.12",
+    "vue-notification": "^1.3.20",
+    "vue-qrcode-reader": "^2.3.15"
   },
-  "author": "PFEGroupe6",
-  "license": "ISC",
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "supertest": "^6.0.1",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "_id": "pfe-frontend-citizens@1.0.0",
   "bugs": {
     "url": "https://github.com/marco-verbeek/pfe-frontend-citizens/issues"
   },
-  "homepage": "https://github.com/marco-verbeek/pfe-frontend-citizens#readme"
+  "homepage": "https://github.com/marco-verbeek/pfe-frontend-citizens#readme",
+  "license": "ISC",
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marco-verbeek/pfe-frontend-citizens.git"
+  }
 }
