@@ -1,49 +1,30 @@
 <template>
-
   <div id="app">
     <notifications group="foo" />
-    <div v-if="!seeScan">
-      <img alt="Vue logo" src="./assets/logo.png">
-      <p>Welcome to blockCovid</p>
-      <button  class="btn btn-info" v-on:click="setSeeScan()">Scan</button>
-      <button  class="btn btn-info" v-on:click="sendNotification()">notify</button>
-    </div>
-    
-    <Scan v-if="seeScan" msg="Welcome to Your scan"/> 
+    <div id="nav">
 
+    </div>
+    <router-view/>
   </div>
 </template>
 
+
 <script>
-import Scan from './components/Scan.vue'
+import router from "./router/index.js";
 
 export default {
   name: 'App',
 
-  data () {
-    return {
-      seeScan: false
+  mounted() {
+    console.log("mounted")
+    if (!localStorage.id) {
+      router.push('getstarted')
     }
-  },
-  methods:{
-    sendNotification: function (){
-      console.log("ok")
-      this.$notify({
-        group: 'foo',
-        title: 'Important message',
-        text: 'Hello user! This is a notification!'
-      });
-    },
-    setSeeScan: function () {
-      this.seeScan = true
-    }
-
-  },
-  components: {
-    Scan
   }
+
 }
 </script>
+
 
 <style>
 #app {
@@ -52,6 +33,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

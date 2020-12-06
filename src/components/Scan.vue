@@ -1,18 +1,22 @@
 <template>
-  <div >
+  <div>
+
     <div class="scan">
       <qrcode-drop-zone @decode="onDecode" @init="logErrors" >
-          <qrcode-stream @decode="onDecode" @init="onInit" style="position: absolute; top:0; left:0;
+        <qrcode-stream @decode="onDecode" @init="onInit" style="position: absolute; top:0; left:0;
             width: 100%;height: 100%;" />
       </qrcode-drop-zone>
 
       <qrcode-capture v-if="noStreamApiSupport" @decode="onDecode" />
     </div>
-    
+    <div class="back">
+      <router-link style="position:absolute" to="/"> <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></router-link>
+    </div>
+
     <div class="validation" v-if="success">
       <i class="fa fa-check-circle" style="color:green; font-size: 10em" aria-hidden="true"></i>
     </div>
-    
+
   </div>
 </template>
 
@@ -38,9 +42,16 @@ export default {
       if(result !== ''){
         this.result = result
         console.log(result)
-        axios.get(result).then(r => console.log(r)).catch(r => console.error(r))
-        //axios.post("https://pfe-backend-dev.herokuapp.com/doctors",data).then(r => console.log(r)).catch(r => console.error(r))
+        let resultSplit = result.split("=")
+        const data= {
+          citizen_id: localStorage.id,
+
+          qrcode_id:resultSplit[1]
+        }
+
+        axios.post("https://pfe-backend-dev.herokuapp.com/scannedcodes",data).then(r => console.log(r)).catch(r => console.error(r))
         this.success = true
+
       }
     },
 
@@ -62,9 +73,19 @@ export default {
 </script>
 
 <style>
+.back{
+  position: absolute;
+}
 .validation {
-  position:absolute;
-  top:40%;
-  left:35%
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50%;
+  margin-bottom: auto;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
 }
 </style>
