@@ -45,11 +45,11 @@ export default {
         let resultSplit = result.split("=")
         const data= {
           citizen_id: localStorage.id,
-
           qrcode_id:resultSplit[1]
         }
+        axios.post("https://pfe-backend-dev.herokuapp.com/qrcodes/scan",data).then(r => console.log(r)).catch(r => console.error(r))
 
-        axios.post("https://pfe-backend-dev.herokuapp.com/scannedcodes",data).then(r => console.log(r)).catch(r => console.error(r))
+        //axios.post("https://pfe-backend-dev.herokuapp.com/scannedcodes",data).then(r => console.log(r)).catch(r => console.error(r))
         this.success = true
 
       }

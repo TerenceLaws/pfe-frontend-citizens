@@ -1,6 +1,14 @@
 <template>
-  <div >
-    <button v-on:click="register()">
+  <div>
+    <img alt="Vue logo" src="../assets/logo.png">
+    <h1>Welcome</h1>
+    <div  class="text-center">
+      <p>this application is exclusively</p>
+      <p>anonymous, we do not seek to</p>
+      <p>to recover your data</p>
+    </div>
+    
+    <button  v-on:click="register()">
       Get started
     </button>
   </div>
@@ -15,11 +23,11 @@ export default {
   methods:{
     register: function (){
       axios.post("https://pfe-backend-dev.herokuapp.com/citizens")
-         .then( r =>{
-           console.log(r)
-           localStorage.id= r.data._id.valueOf()
-           router.push('/')
-         })
+        .then( r =>{
+          console.log(r)
+          localStorage.id= r.data._id.valueOf()
+          router.push('/')
+        })
         .catch(r => console.error(r))
 
     },
