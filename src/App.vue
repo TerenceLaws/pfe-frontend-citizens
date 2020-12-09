@@ -1,25 +1,43 @@
 <template>
   <div id="app">
     <notifications group="foo" />
-    <div id="nav">
 
-    </div>
     <router-view/>
   </div>
 </template>
 
 
 <script>
+
 import router from "./router/index.js";
+import startScript from "./notification.js"
 
 export default {
   name: 'App',
+  data () {
+    return {
+      
+    }
+  },
+  methods:{
+     startScript
+  },
+
 
   mounted() {
     console.log("mounted")
-    if (!localStorage.id) {
+   if (!localStorage.id) {
+     //axios.get("https://pfe-backend-dev.herokuapp.com/notifiaction/publickey")
+     //    .then( r =>{
+     //      console.log(r)
+     //      localStorage.publicKey= r.data.valueOf()  
+     //    })
+     //   .catch(r => console.error(r))
+
       router.push('getstarted')
+      
     }
+    this.startScript()
   }
 
 }

@@ -2,6 +2,13 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <p>Welcome to blockCovid</p>
+    <div  class="text-center">
+      <p>
+      this application is exclusively <br>
+      anonymous, we do not seek to<br>
+      to recover your data<br>
+      </p>
+    </div>
     <router-link to="/scan" class="btn btn-info">Scan</router-link>
     <button class="btn btn-info" v-on:click="sendNotification()">notify</button>
   </div>
