@@ -42,10 +42,10 @@ export default {
       if(result !== ''){
         this.result = result
         console.log(result)
-        let resultSplit = result.split("=")
+
         const data= {
           citizen_id: localStorage.id,
-          qrcode_id:resultSplit[1]
+          qrcode_id:result
         }
         axios.post("https://pfe-backend-dev.herokuapp.com/qrcodes/scan",data).then(r => console.log(r)).catch(r => console.error(r))
 
