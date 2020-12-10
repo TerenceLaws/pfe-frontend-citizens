@@ -1,0 +1,16 @@
+{
+  "name": "blockCovid",
+  "short_name" : "block",
+  "lang" : "fr",
+  "start_url" : "/",
+  "display" : "standalone",
+  "theme_color" :"#009688",
+  "background_color" : "#009688",
+  "icons" : [
+    {
+      "src" : "android-chrome-192*192.png",
+      "size" : "512*512",
+      "type" : "image/png"
+    }
+  ]
+}
