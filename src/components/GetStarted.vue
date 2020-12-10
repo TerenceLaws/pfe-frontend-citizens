@@ -20,12 +20,14 @@ import router from "../router/index.js";
 //import startScript from "@/notification";
 import startScript from "../notification.js"
 
+
 export default {
   name: "GetStarted",
   methods:{
     startScript,
     register: function (){
-      axios.post("https://pfe-backend-dev.herokuapp.com/citizens")
+      axios.post(process.env.VUE_APP_REQ_URL+"/citizens")
+      //axios.post("https://pfe-backend-dev.herokuapp.com/citizens")
         .then( r =>{
           console.log(r)
           localStorage.id= r.data.id.valueOf()

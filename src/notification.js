@@ -24,14 +24,13 @@ function urlB64ToUint8Array (base64String) {
 function updateSubscriptionOnServer (subscription) {
   // TODO: Send subscription to application server
 
-
    const data= {
     subscription: JSON.stringify(subscription),
     id: localStorage.getItem('id')
   }
-   axios.post('https://pfe-backend-dev.herokuapp.com/notification/subscribe',data)
+    axios.post(process.env.VUE_APP_REQ_URL+"/notification/subscribe",data)
+   //axios.post('https://pfe-backend-dev.herokuapp.com/notification/subscribe',data)
     //axios.post('http://localhost:5000/notification/subscribe',data)
-
     .then(resp => {
         console.log(resp.data);
     })
