@@ -85,7 +85,8 @@ function initializeUI () {
     .then(function (subscription) {
       isSubscribed = !(subscription === null)
 
-      updateSubscriptionOnServer(subscription)
+        // Bug fix 7:23PM possible null value set
+      //updateSubscriptionOnServer(subscription)
 
       if (isSubscribed) {
         console.log('User IS subscribed.')
