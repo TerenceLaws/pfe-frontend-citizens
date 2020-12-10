@@ -25,8 +25,8 @@ export default {
   methods:{
     startScript,
     register: function (){
-      //axios.post("https://pfe-backend-dev.herokuapp.com/citizens")
-      axios.post("http://localhost:5000/citizens")
+      axios.post("https://pfe-backend-dev.herokuapp.com/citizens")
+      //axios.post("http://localhost:5000/citizens")
         .then( r =>{
           console.log(r)
           localStorage.id= r.data.id.valueOf()
