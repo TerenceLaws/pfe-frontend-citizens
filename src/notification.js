@@ -1,6 +1,5 @@
 
-//const axios = require('axios');
-//const applicationServerPublicKey = 'BAxk8w8sAol2QQXZ-oU1Nzi2ABA-rFAAtgYfCF03r34r9R5lUdx0OmFdbTHLEmDYWFZHpFi_P1xEpWAk1tAwevs'
+const axios = require('axios');
 let applicationServerPublicKey = null;
 
 let isSubscribed = false
@@ -26,15 +25,17 @@ function updateSubscriptionOnServer (subscription) {
   // TODO: Send subscription to application server
 
 
-//   const data= {
-//     subscription: JSON.stringify(subscription),
-//     id: localStorage.getItem('id')
-//   }
-//   await axios.post('https://pfe-backend-dev.herokuapp.com/subscription',data)
-//     .then(resp => {
-//         console.log(resp.data);
-//     })
-//     .catch(r => console.error(r));
+   const data= {
+    subscription: JSON.stringify(subscription),
+    id: localStorage.getItem('id')
+  }
+   axios.post('https://pfe-backend-dev.herokuapp.com/notification/subscribe',data)
+    //axios.post('http://localhost:5000/notification/subscribe',data)
+
+    .then(resp => {
+        console.log(resp.data);
+    })
+    .catch(r => console.error(r));
 
   console.log(JSON.stringify(subscription))
 

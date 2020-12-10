@@ -23,6 +23,7 @@
 <script>
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from 'vue-qrcode-reader'
 import axios from 'axios'
+import router from "@/router"
 
 export default {
 
@@ -48,11 +49,17 @@ export default {
           qrcode_id:result
         }
         axios.post("https://pfe-backend-dev.herokuapp.com/qrcodes/scan",data).then(r => console.log(r)).catch(r => console.error(r))
-        // axios.post("http://localhost:5000/qrcodes/scan",data).then(r => console.log(r)).catch(r => console.error(r))
-        console.log("ici")
+        //axios.post("http://localhost:5000/qrcodes/scan",data)
+            .then(r => {
+              console.log(r)
+              this.success = true
+              setTimeout(() => router.push('/remind'),2000)
+            }).catch(r => console.error(r))
+
 
         //axios.post("https://pfe-backend-dev.herokuapp.com/scannedcodes",data).then(r => console.log(r)).catch(r => console.error(r))
-        this.success = true
+
+
 
       }
     },

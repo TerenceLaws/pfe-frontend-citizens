@@ -1,16 +1,15 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <img alt="Vue logo" src="../assets/logoCovid.png">
     <p>Welcome to blockCovid</p>
     <div  class="text-center">
       <p>
-      this application is exclusively <br>
-      anonymous, we do not seek to<br>
-      to recover your data<br>
+      scan the QR codes and create <br>
+      a safer world<br>
+
       </p>
     </div>
     <router-link to="/scan" class="btn btn-info">Scan</router-link>
-    <button class="btn btn-info" v-on:click="sendNotification()">notify</button>
   </div>
 </template>
 

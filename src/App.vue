@@ -10,7 +10,8 @@
 <script>
 
 import router from "./router/index.js";
-import startScript from "./notification.js"
+
+import axios from 'axios'
 
 export default {
   name: 'App',
@@ -19,25 +20,24 @@ export default {
       
     }
   },
-  methods:{
-     startScript
-  },
 
 
   mounted() {
     console.log("mounted")
    if (!localStorage.id) {
-     //axios.get("https://pfe-backend-dev.herokuapp.com/notifiaction/publickey")
-     //    .then( r =>{
-     //      console.log(r)
-     //      localStorage.publicKey= r.data.valueOf()  
-     //    })
-     //   .catch(r => console.error(r))
+     axios.get("https://pfe-backend-dev.herokuapp.com/notification/publickey")
+     //axios.get("http://localhost:5000/notification/publickey")
+         .then( r =>{
+           console.log(r)
+           localStorage.applicationServerPublicKey= r.data.publicKey.valueOf()
+
+         })
+        .catch(r => console.error(r))
 
       router.push('getstarted')
       
     }
-    this.startScript()
+
   }
 
 }

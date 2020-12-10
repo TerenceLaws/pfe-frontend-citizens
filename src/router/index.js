@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Scan from "@/components/Scan"
+import Remind from "@/components/Remind"
 import GetStarted from "@/components/GetStarted"
 
 Vue.use(VueRouter)
@@ -21,6 +22,11 @@ const routes = [
     path: '/getstarted',
     name: 'GetStarted',
     component: GetStarted
+  },
+  {
+    path: '/remind',
+    name: 'Remind',
+    component: Remind
   },
   {
     path: '/about',
