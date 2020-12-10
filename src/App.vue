@@ -25,7 +25,7 @@ export default {
   mounted() {
     console.log("mounted")
    if (!localStorage.id) {
-     axios.get(process.env.APP_VUE_REQ_URL+"/notification/publickey")
+     axios.get(process.env.VUE_APP_REQ_URL+"/notification/publickey")
      //axios.get("http://localhost:5000/notification/publickey")
          .then( r =>{
            console.log(r)
